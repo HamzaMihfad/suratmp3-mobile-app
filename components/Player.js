@@ -6,6 +6,7 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import AudioPlayer from './audioPlayer/AudioPlayer';
 import { suwar } from '../arrays/Suwar';
 import { Al9ora2Array } from '../arrays/Al9ora2Array';
+import { Notifications } from 'expo';
 
 const win = Dimensions.get('window');
 
@@ -17,10 +18,36 @@ export default function Player({ audioStatus, setAudioStatus, suraKey, mo9ri2Key
   const [shouldUpdate, setShouldUpdate] = useState(0);
   const [link, setLink] = useState('');
 
+  // arabic font:
   let [fontsLoaded] = useFonts({
     'Arabic-Font': require('../assets/fonts/NotoKufiArabic-Bold.ttf'),
   });
 
+  // notification:
+  const notification = () => {
+    Notifications.createCategoryAsync('daily', [
+      {
+          actionId: 'yes',
+          buttonTitle: 'السابق',
+      },
+      {
+          actionId: 'no',
+          buttonTitle: 'إيقاف',
+      },
+      {
+        actionId: 'yes',
+        buttonTitle: 'التالي',
+    },
+  ]);
+    Notifications.presentLocalNotificationAsync({
+      title: `سورة ${suwar[suraKey-1]}`,
+      body: `القارئ : ${Al9ora2Array[mo9ri2Key].name}`,
+      categoryId: 'daily',
+    });
+  }
+
+
+  // to change the audio url:
   const getLink = (condition, key) => {
     if (key === 0) {
       setLink(`${Al9ora2Array[mo9ri2Key].path}114.mp3`);
@@ -48,6 +75,7 @@ export default function Player({ audioStatus, setAudioStatus, suraKey, mo9ri2Key
   useEffect(() => {
     getLink(0, suraKey);
     changeTime(0);
+    notification();
   }, []);
 
   useEffect(() => {

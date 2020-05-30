@@ -1,114 +1,118 @@
-import React, { Component } from 'react';
-import { View } from 'react-native';
-import { Audio } from 'expo-av';
+import React, { Component } from "react";
+import { View } from "react-native";
+import { Audio } from "expo-av";
 
 export default class AudioPlayer extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { isPlaying: true };
+  constructor(props) {
+    super(props);
+    this.state = { isPlaying: true };
+  }
+
+  async startAudio() {
+    this.props.setAudioStatus(true);
+    this.state.isPlaying = true;
+    this.sound = null;
+    //console.log(this.props.audioLink);
+
+    const { sound } = await Audio.Sound.createAsync(
+      { uri: this.props.audioLink },
+      {
+        shouldPlay: true,
+        // isLooping: true,
+      }
+    );
+    this.sound = sound;
+    this.props.setSound(this.sound);
+    this.props.setAudioStatus(true);
+    this.sound.setOnPlaybackStatusUpdate(this._onPlaybackStatusUpdate);
+
+    await Audio.setAudioModeAsync({
+      staysActiveInBackground: true,
+      interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
+      shouldDuckAndroid: true,
+      playThroughEarpieceAndroid: false,
+      allowsRecordingIOS: true,
+      interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
+      playsInSilentModeIOS: true,
+    });
+  }
+
+  _onPlaybackStatusUpdate = (playbackStatus) => {
+    if (playbackStatus.didJustFinish) {
+      // The player has just finished playing and will stop
+      //this.props.setAudioStatus(false);
+      this.state.isPlaying = false;
     }
+  };
 
-    async startAudio() {
-        this.sound = null;
-        //console.log(this.props.audioLink);
+  async pauseAudio() {
+    await this.sound.pauseAsync();
+    this.state.isPlaying = false;
+    //this.props.setAudioStatus(false);
+  }
 
-        const { sound } = await Audio.Sound.createAsync(
-            { uri: this.props.audioLink },
-            {
-                shouldPlay: true,
-                // isLooping: true,
-            },
-        );
-        this.sound = sound;
-        this.state.isPlaying = true;
-        this.props.setAudioStatus(true);
-        this.sound.setOnPlaybackStatusUpdate(this._onPlaybackStatusUpdate);
-        
-        await Audio.setAudioModeAsync({
-            staysActiveInBackground: true,
-            interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
-            shouldDuckAndroid: true,
-            playThroughEarpieceAndroid: false,
-            allowsRecordingIOS: true,
-            interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
-            playsInSilentModeIOS: true,
-          });
-    }
+  async playAudio() {
+    await this.sound.playAsync();
+    this.state.isPlaying = true;
+  }
 
-    _onPlaybackStatusUpdate = playbackStatus => {
-        if (playbackStatus.didJustFinish) {
-            // The player has just finished playing and will stop
-            this.props.setAudioStatus(false);
-            this.state.isPlaying = false;
+  async audioPosition() {
+    let {
+      isLoaded,
+      isPlaying,
+      positionMillis,
+      durationMillis,
+    } = await this.sound.getStatusAsync();
+    this.props.setAudioLength(durationMillis);
+    this.props.setTimer(positionMillis);
+  }
+
+  updateTimer = () => {
+    this.ftTimer = setInterval(() => {
+      this.sound != null ? this.audioPosition() : null;
+    }, 700);
+  };
+
+  reset = () => {
+    this.state.isPlaying = true;
+    this.startAudio();
+  };
+
+  componentDidMount = () => {
+    this.startAudio();
+    this.updateTimer();
+  };
+
+  componentDidUpdate() {
+    if (this.sound != null) {
+      if (this.props.audioStatus) {
+        if (!this.state.isPlaying) {
+          this.playAudio();
+          this.state.isPlaying = true;
+          this.updateTimer();
         }
-    };
-
-    async pauseAudio() {
-        await this.sound.pauseAsync();
-        this.state.isPlaying = false;
-        this.props.setAudioStatus(false);
-    }
-
-    async playAudio() {
-        await this.sound.playAsync();
-        this.state.isPlaying = true;
-    }
-
-    async audioPosition() {
-        let { isLoaded, isPlaying, positionMillis, durationMillis } = await this.sound.getStatusAsync();
-        this.props.setAudioLength(durationMillis);
-        this.props.setTimer(positionMillis);
-    }
-
-    updateTimer = () => {
-        this.ftTimer = setInterval(() => { (this.sound != null) ? this.audioPosition() : null }, 700);
-    }
-
-    reset = () => {
-        this.state.isPlaying = true;
-        this.startAudio();
-    }
-
-    componentDidMount = () => {
-        this.startAudio();
-        this.updateTimer();
-    }
-
-    componentDidUpdate() {
-        if (this.sound != null) {
-            if (this.props.audioStatus) {
-                if (!this.state.isPlaying) {
-                    this.playAudio();
-                    this.state.isPlaying = true;
-                    this.updateTimer();
-                }
-                if (this.props.shouldUpdate) {
-                    // next and previous
-                    if (this.props.shouldUpdate === 2) {
-                        this.pauseAudio();
-                        this.reset();
-                        this.props.setShouldUpdate(false);
-                    } else {
-                        this.sound.playFromPositionAsync(this.props.setPosition * 1000);
-                        this.props.setShouldUpdate(false);
-                    }
-                }
-            }
-            else
-                this.pauseAudio();
+        if (this.props.shouldUpdate) {
+          // next and previous
+          if (this.props.shouldUpdate === 2) {
+            this.pauseAudio();
+            this.reset();
+            this.props.setShouldUpdate(false);
+          } else {
+            this.sound.playFromPositionAsync(this.props.setPosition * 1000);
+            this.props.setShouldUpdate(false);
+          }
         }
+      } else this.pauseAudio();
     }
+  }
 
-    componentWillUnmount() {
-        //this.state.isPlaying = false;
-        //this.pauseAudio();
-        //clearInterval(this.ftTimer);
-    }
+  componentWillUnmount() {
+    //this.state.isPlaying = false;
+    //this.pauseAudio();
+    clearInterval(this.ftTimer);
+  }
 
-    render() {
-        return (
-            <View>
-            </View>
-        );
-    }
+  render() {
+    return <View></View>;
+  }
 }

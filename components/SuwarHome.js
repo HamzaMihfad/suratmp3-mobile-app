@@ -13,11 +13,11 @@ import { suwar } from "../arrays/Suwar";
 
 const win = Dimensions.get("window");
 
-export default function SuwarHome({ navigation, setSuratKey, setAudioStatus }) {
+export default function SuwarHome({ navigation, setSuratKey }) {
   const [isLoading, setIsLoading] = useState(true);
   const [onClick, setOnClick] = useState(null);
 
-  useFonts({
+  let [fontsLoaded] = useFonts({
     "Arabic-Font": require("../assets/fonts/NotoKufiArabic-Bold.ttf"),
   });
 
@@ -45,7 +45,6 @@ export default function SuwarHome({ navigation, setSuratKey, setAudioStatus }) {
                 }}
                 onPress={() => {
                   setSuratKey(key + 1);
-                  setAudioStatus(true);
                   navigation.navigate("Player");
                 }}
               >

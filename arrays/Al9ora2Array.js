@@ -221,19 +221,19 @@ export const Al9ora2Array = [
     },
     {
         name: "عبد الله بصفر",
-        path: "https://surahmp3.com/m//"
+        path: "https://surahmp3.com/m/055.Abdelah-bsfr/"
     },
     {
         name: "عبد الله خياط",
-        path: "https://surahmp3.com/m//"
+        path: "https://surahmp3.com/m/056.Abdlah-khyat/"
     },
     {
         name: "عبد الله عواد الجهني",
-        path: "https://surahmp3.com/m//"
+        path: "https://surahmp3.com/m/057.Abdlah-owad-aljahni/"
     },
     {
         name: "عبد الله غيلان",
-        path: "https://surahmp3.com/m//"
+        path: "https://surahmp3.com/m/058.Abdlah-Ghilan/"
     },
     {
         name: "عبد الرشيد صوفي",

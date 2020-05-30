@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   View,
@@ -13,11 +13,15 @@ import { useFonts } from "@use-expo/font";
 
 const win = Dimensions.get("window");
 
-export default function Al9ora2({ navigation, setMo9ri2Key }) {
+export default function Al9ora2({ navigation, setMo9ri2Key, setNavigation }) {
   const [onClick, setOnClick] = useState(null);
 
   let [fontsLoaded] = useFonts({
     "Arabic-Font": require("../assets/fonts/NotoKufiArabic-Bold.ttf"),
+  });
+
+  useEffect(() => {
+    setNavigation(navigation);
   });
 
   if (!fontsLoaded) {

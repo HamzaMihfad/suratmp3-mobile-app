@@ -387,8 +387,10 @@ file.on("error", function (err) {
   /* error handling */
 });
 file.write("export const Al9ora2Array = [\n");
-Al9ora2Array.forEach(function (v) {
-  file.write(`{name:"${v.name}", path:"${v.path}", riwayat:["${v.riwayat[0]}"`);
+Al9ora2Array.forEach(function (v, i) {
+  file.write(
+    `{id:${i},name:"${v.name}", path:"${v.path}", riwayat:["${v.riwayat[0]}"`
+  );
   if (v.riwayat[1]) file.write(`,"${v.riwayat[1]}"`);
   if (v.riwayat[2]) file.write(`,"${v.riwayat[2]}"`);
   if (v.riwayat[3]) file.write(`,"${v.riwayat[3]}"`);

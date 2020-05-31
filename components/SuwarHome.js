@@ -36,15 +36,15 @@ export default function SuwarHome({
   const getRiwaya = (riwaya) => {
     switch (riwaya) {
       case "hafs":
-        return "حفص عن عاصم";
+        return "رواية حفص عن عاصم";
       case "warsh":
-        return "ورش عن نافع";
+        return "رواية ورش عن نافع";
       case "9alon":
-        return "قالون عن نافع";
+        return "رواية قالون عن نافع";
       case "sousi":
-        return "السويسي عن أبي عمرو";
+        return "السوسي عن أبي عمرو";
       case "khalaf":
-        return "خلف عن حمزة";
+        return "رواية خلف عن حمزة";
       default:
         return "";
     }
@@ -100,10 +100,12 @@ export default function SuwarHome({
                 </Text>
               </View>
 
+              {/* Searsh Container */}
               <View
                 style={[
                   styles.dropDown,
                   {
+                    width: win.width * 0.42,
                     backgroundColor: "#111111bb",
                     alignItems: "center",
                     justifyContent: "space-around",
@@ -222,7 +224,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     margin: win.height * 0.012,
     backgroundColor: "#ffffffdd",
-    width: win.width * 0.45,
+    width: win.width * 0.5,
     height: win.height * 0.055,
     borderRadius: 100,
   },

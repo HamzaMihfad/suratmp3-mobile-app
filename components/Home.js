@@ -70,7 +70,7 @@ export default function Al9ora2({
           <Text
             style={{
               fontFamily: "Arabic-Font",
-              fontSize: 21,
+              fontSize: 25,
               color: "white",
             }}
           >
@@ -92,7 +92,7 @@ export default function Al9ora2({
               }}
               onPress={() => {
                 setOnClick(key);
-                setMo9ri2Key(key);
+                setMo9ri2Key(mo9ri2.id);
                 navigation.navigate("SuwarHome");
               }}
             >
@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
   },
   Header: {
     paddingLeft: win.width * 0.02,
-    paddingRight: win.width * 0.04,
+    paddingRight: win.width * 0.05,
     paddingTop: win.height * 0.01,
     marginBottom: win.height * 0.007,
     width: win.width,

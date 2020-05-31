@@ -83,6 +83,8 @@ export default function SuwarHome({
           <View>
             <Text
               style={{
+                position: "relative",
+                top: 2,
                 fontSize: 14,
                 color: "#323232",
                 fontFamily: "Arabic-Font",
@@ -92,8 +94,8 @@ export default function SuwarHome({
             </Text>
             <Text
               style={{
-                margin: 0,
-                padding: 0,
+                position: "relative",
+                bottom: 3,
                 fontSize: 12,
                 color: "#8F98A7",
                 fontFamily: "Arabic-Font",
@@ -113,9 +115,9 @@ const styles = StyleSheet.create({
     bottom: 0,
     backgroundColor: "white",
     width: "100%",
-    height: 0.1 * win.height,
+    height: win.height * 0.087,
     borderRadius: 100,
-    borderWidth: 2,
+    borderWidth: 1.3,
     borderColor: "#22aaf5",
     overflow: "hidden",
     flexDirection: "row",

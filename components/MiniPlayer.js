@@ -3,10 +3,8 @@ import {
   StyleSheet,
   View,
   Text,
-  ScrollView,
   Dimensions,
   TouchableOpacity,
-  ActivityIndicator,
   TouchableWithoutFeedback,
 } from "react-native";
 import { useFonts } from "@use-expo/font";
@@ -24,6 +22,7 @@ export default function SuwarHome({
   navigation,
   audioStatus,
   setAudioStatus,
+  displayMiniPlayer,
 }) {
   let [fontsLoaded] = useFonts({
     "Arabic-Font": require("../assets/fonts/NotoKufiArabic-Bold.ttf"),
@@ -39,7 +38,7 @@ export default function SuwarHome({
     setAudioStatus(true);
   }
 
-  if (!fontsLoaded || inPlayer) {
+  if (!fontsLoaded || inPlayer || !displayMiniPlayer) {
     return null;
   } else {
     return (
@@ -111,6 +110,7 @@ export default function SuwarHome({
 
 const styles = StyleSheet.create({
   container: {
+    bottom: 0,
     backgroundColor: "white",
     width: "100%",
     height: 0.1 * win.height,

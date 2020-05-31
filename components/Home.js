@@ -70,6 +70,7 @@ export default function Al9ora2({ navigation, setMo9ri2Key, setNavigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    height: win.height,
     backgroundColor: "#fafafa",
     alignItems: "center",
     paddingTop: win.height * 0.037,
@@ -78,9 +79,9 @@ const styles = StyleSheet.create({
   suratContainer: {
     backgroundColor: "#fff",
     width: win.width * 0.9,
-    marginVertical: win.width * 0.02,
+    marginVertical: win.height * 0.007,
     marginHorizontal: win.width * 0.05,
-    padding: win.height * 0.02,
+    padding: win.height * 0.012,
     borderWidth: 2,
     borderColor: "#22aaf5",
     borderRadius: 10,
@@ -97,7 +98,7 @@ const styles = StyleSheet.create({
   },
   surat: {
     fontFamily: "Arabic-Font",
-    fontSize: 17,
+    fontSize: 15,
     color: "#636363",
   },
 });

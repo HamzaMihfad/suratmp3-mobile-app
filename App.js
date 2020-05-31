@@ -5,7 +5,8 @@ import SuwarHome from "./components/SuwarHome";
 import Home from "./components/Home";
 import Player from "./components/Player";
 import MiniPlayer from "./components/MiniPlayer";
-import { View, Text } from "react-native";
+import { Al9ora2Array } from "./arrays/Al9ora2Array";
+import { View, Dimensions } from "react-native";
 
 const Stack = createStackNavigator();
 
@@ -18,12 +19,15 @@ export default function App() {
   const [inPlayer, setInPlayer] = useState(false);
   const [navigation, setNavigation] = useState(null);
   const [sound, setSound] = useState(null);
+  const [displayMiniPlayer, setDisplayMiniPlayer] = useState(true);
 
   // useEffect(() => {
   //   console.log(audioStatus);
   // });
   return (
-    <NavigationContainer>
+    <NavigationContainer
+      style={{ minHeight: Math.round(Dimensions.get("window").height) }}
+    >
       <Stack.Navigator headerMode={false}>
         <Stack.Screen name="Home">
           {(props) => (
@@ -36,7 +40,14 @@ export default function App() {
         </Stack.Screen>
 
         <Stack.Screen name="SuwarHome">
-          {(props) => <SuwarHome {...props} setSuratKey={setSuratKey} />}
+          {(props) => (
+            <SuwarHome
+              {...props}
+              setSuratKey={setSuratKey}
+              mo9ri2={Al9ora2Array[mo9ri2Key]}
+              setDisplayMiniPlayer={setDisplayMiniPlayer}
+            />
+          )}
         </Stack.Screen>
 
         <Stack.Screen name="Player">
@@ -54,6 +65,7 @@ export default function App() {
           )}
         </Stack.Screen>
       </Stack.Navigator>
+
       <MiniPlayer
         sound={sound}
         suraKey={suraKey}
@@ -62,6 +74,7 @@ export default function App() {
         navigation={navigation}
         audioStatus={audioStatus}
         setAudioStatus={setAudioStatus}
+        displayMiniPlayer={displayMiniPlayer}
       />
     </NavigationContainer>
   );

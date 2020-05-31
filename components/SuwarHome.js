@@ -30,8 +30,25 @@ export default function SuwarHome({
   });
 
   const filteredSuwar = suwar.filter((surah) => {
-    return surah.includes(searchField);
+    return surah.name.includes(searchField);
   });
+
+  const getRiwaya = (riwaya) => {
+    switch (riwaya) {
+      case "hafs":
+        return "حفص عن عاصم";
+      case "warsh":
+        return "ورش عن نافع";
+      case "9alon":
+        return "قالون عن نافع";
+      case "sousi":
+        return "السويسي عن أبي عمرو";
+      case "khalaf":
+        return "خلف عن حمزة";
+      default:
+        return "";
+    }
+  };
 
   useEffect(() => {
     setIsLoading(false);
@@ -43,7 +60,7 @@ export default function SuwarHome({
 
       {!isLoading && (
         <View>
-          <View style={styles.mo9ri2Header}>
+          <View style={styles.Header}>
             <View style={{ width: win.width * 0.92 }}>
               <Text
                 style={{
@@ -55,10 +72,34 @@ export default function SuwarHome({
                 {mo9ri2.name}
               </Text>
             </View>
+
             <View style={{ flexDirection: "row" }}>
-              <View style={styles.dropDown}>
-                <FontAwesome5 name="sort-down" size={26} color="#fd7e14" />
+              <View
+                style={[
+                  styles.dropDown,
+                  {
+                    alignItems: "center",
+                    justifyContent: "space-around",
+                  },
+                ]}
+              >
+                <FontAwesome5
+                  style={{ top: -4 }}
+                  name="sort-down"
+                  size={26}
+                  color="#fd7e14"
+                />
+                <Text
+                  style={{
+                    fontFamily: "Arabic-Font",
+                    fontSize: 13,
+                    color: "#333",
+                  }}
+                >
+                  {getRiwaya(mo9ri2.riwayat[0])}
+                </Text>
               </View>
+
               <View
                 style={[
                   styles.dropDown,
@@ -98,17 +139,17 @@ export default function SuwarHome({
                     setOnClick(null);
                   }}
                   onPress={() => {
-                    setSuratKey(key + 1);
+                    setSuratKey(sura.id);
                     navigation.navigate("Player");
                   }}
                 >
                   <Text
                     style={[
                       styles.surat,
-                      { color: onClick === key ? "#fd7e14" : "#636363" },
+                      { color: onClick === key ? "#fd7e14" : "#373737" },
                     ]}
                   >
-                    {key + 1}. {`سورة ${sura}`}
+                    {sura.id}. {`سورة ${sura.name}`}
                   </Text>
                 </TouchableHighlight>
               );
@@ -153,12 +194,11 @@ const styles = StyleSheet.create({
   surat: {
     fontFamily: "Arabic-Font",
     fontSize: 15,
-    color: "#636363",
   },
   align: {
     width: win.width * 0.6,
   },
-  mo9ri2Header: {
+  Header: {
     // flexDirection: "row",
     // justifyContent: "space-between",
     alignItems: "center",
@@ -168,13 +208,15 @@ const styles = StyleSheet.create({
     width: win.width,
     height: win.height * 0.19,
     backgroundColor: "#22aaf5",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 2,
+    borderBottomWidth: 2,
+    borderColor: "#fd7e14",
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 2,
+    // },
+    // shadowOpacity: 0.25,
+    // shadowRadius: 3.84,
+    // elevation: 2,
   },
   dropDown: {
     flexDirection: "row",
@@ -183,6 +225,5 @@ const styles = StyleSheet.create({
     width: win.width * 0.45,
     height: win.height * 0.055,
     borderRadius: 100,
-    paddingHorizontal: win.width * 0.01,
   },
 });

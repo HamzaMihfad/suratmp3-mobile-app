@@ -21,6 +21,9 @@ export default function App() {
   const [sound, setSound] = useState(null);
   const [displayMiniPlayer, setDisplayMiniPlayer] = useState(true);
 
+  //Curent Riwaya
+  const [currentRiwaya, setCurrentRiwaya] = useState(0);
+
   // useEffect(() => {
   //   console.log(audioStatus);
   // });
@@ -35,6 +38,7 @@ export default function App() {
               {...props}
               setMo9ri2Key={setMo9ri2Key}
               setNavigation={setNavigation}
+              setDisplayMiniPlayer={setDisplayMiniPlayer}
             />
           )}
         </Stack.Screen>
@@ -58,9 +62,10 @@ export default function App() {
               setAudioStatus={setAudioStatus}
               setInPlayer={setInPlayer}
               suraKey={suraKey}
-              mo9ri2Key={mo9ri2Key}
+              mo9ri2={Al9ora2Array[mo9ri2Key]}
               setSuratKey={setSuratKey}
               setSound={setSound}
+              currentRiwaya={currentRiwaya}
             />
           )}
         </Stack.Screen>

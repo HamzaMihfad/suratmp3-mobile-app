@@ -88,7 +88,7 @@ export default function SuwarHome({
                 fontFamily: "Arabic-Font",
               }}
             >
-              {`${suraKey}. سورة ${suwar[suraKey - 1]}`}
+              {`${suraKey}. سورة ${suwar[suraKey - 1].name}`}
             </Text>
             <Text
               style={{

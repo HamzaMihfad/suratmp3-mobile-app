@@ -13,7 +13,6 @@ import { useFonts } from "@use-expo/font";
 import { FontAwesome5 } from "@expo/vector-icons";
 import AudioPlayer from "./audioPlayer/AudioPlayer";
 import { suwar } from "../arrays/Suwar";
-import { Al9ora2Array } from "../arrays/Al9ora2Array";
 import { Notifications } from "expo";
 
 const win = Dimensions.get("window");
@@ -23,9 +22,10 @@ export default function Player({
   setAudioStatus,
   setInPlayer,
   suraKey,
-  mo9ri2Key,
+  mo9ri2,
   setSuratKey,
   setSound,
+  currentRiwaya,
 }) {
   const [audioLength, setAudioLength] = useState(0);
   const [timer, setTimer] = useState(0);
@@ -55,8 +55,8 @@ export default function Player({
       // },
     ]);
     Notifications.presentLocalNotificationAsync({
-      title: `سورة ${suwar[suraKey - 1]}`,
-      body: `القارئ : ${Al9ora2Array[mo9ri2Key].name}`,
+      title: `سورة ${suwar[suraKey - 1].name}`,
+      body: `القارئ : ${mo9ri2.name}`,
       categoryId: "daily",
     });
   };
@@ -64,14 +64,17 @@ export default function Player({
   // to change the audio url:
   const getLink = (condition, key) => {
     if (key === 0) {
-      setLink(`${Al9ora2Array[mo9ri2Key].path}114.mp3`);
+      setLink(`${mo9ri2.path}${mo9ri2.riwayat[currentRiwaya]}/114.mp3`);
       setSuratKey(114);
     } else if (key === 115) {
-      setLink(`${Al9ora2Array[mo9ri2Key].path}001.mp3`);
+      setLink(`${mo9ri2.path}${mo9ri2.riwayat[currentRiwaya]}/001.mp3`);
       setSuratKey(1);
-    } else if (key < 10) setLink(`${Al9ora2Array[mo9ri2Key].path}00${key}.mp3`);
-    else if (key < 100) setLink(`${Al9ora2Array[mo9ri2Key].path}0${key}.mp3`);
-    else setLink(`${Al9ora2Array[mo9ri2Key].path}${key}.mp3`);
+    } else if (key < 10) {
+      setLink(`${mo9ri2.path}${mo9ri2.riwayat[currentRiwaya]}/00${key}.mp3`);
+      console.log(link);
+    } else if (key < 100)
+      setLink(`${mo9ri2.path}${mo9ri2.riwayat[currentRiwaya]}/0${key}.mp3`);
+    else setLink(`${mo9ri2.path}${mo9ri2.riwayat[currentRiwaya]}/${key}.mp3`);
     if (key !== 0 && key != 115) setSuratKey(key);
     if (condition) setShouldUpdate(2);
   };
@@ -112,7 +115,7 @@ export default function Player({
           color: "#323232",
           fontFamily: "Arabic-Font",
         }}
-      >{`${suraKey}. سورة ${suwar[suraKey - 1]}`}</Text>
+      >{`${suraKey}. سورة ${suwar[suraKey - 1].name}`}</Text>
       <Text
         style={{
           fontSize: 13,
@@ -121,7 +124,7 @@ export default function Player({
           fontFamily: "Arabic-Font",
         }}
       >
-        {Al9ora2Array[mo9ri2Key].name}
+        {mo9ri2.name}
       </Text>
 
       <View style={styles.player}>

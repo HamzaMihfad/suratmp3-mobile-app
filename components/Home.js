@@ -5,19 +5,31 @@ import {
   Text,
   ScrollView,
   Dimensions,
+  TextInput,
   TouchableHighlight,
   ActivityIndicator,
 } from "react-native";
+import { FontAwesome5 } from "@expo/vector-icons";
 import { Al9ora2Array } from "../arrays/Al9ora2Array";
 import { useFonts } from "@use-expo/font";
 
 const win = Dimensions.get("window");
 
-export default function Al9ora2({ navigation, setMo9ri2Key, setNavigation }) {
+export default function Al9ora2({
+  navigation,
+  setMo9ri2Key,
+  setNavigation,
+  setDisplayMiniPlayer,
+}) {
   const [onClick, setOnClick] = useState(null);
+  const [searchField, setSearchField] = useState("");
 
   let [fontsLoaded] = useFonts({
     "Arabic-Font": require("../assets/fonts/NotoKufiArabic-Bold.ttf"),
+  });
+
+  const filtered9ora2 = Al9ora2Array.filter((mo9ri2) => {
+    return mo9ri2.name.includes(searchField);
   });
 
   useEffect(() => {
@@ -33,8 +45,41 @@ export default function Al9ora2({ navigation, setMo9ri2Key, setNavigation }) {
   } else {
     return (
       <View style={styles.container}>
+        <View style={styles.Header}>
+          <View
+            style={[
+              styles.dropDown,
+              {
+                backgroundColor: "#111111bb",
+                alignItems: "center",
+                justifyContent: "space-around",
+              },
+            ]}
+          >
+            <FontAwesome5 name="search" size={21} color="white" />
+            <TextInput
+              style={{ color: "white" }}
+              placeholder="ابحث عن قارئ ..."
+              placeholderTextColor="#ccc"
+              onChangeText={(val) => {
+                setSearchField(val);
+                val ? setDisplayMiniPlayer(false) : setDisplayMiniPlayer(true);
+              }}
+            />
+          </View>
+          <Text
+            style={{
+              fontFamily: "Arabic-Font",
+              fontSize: 21,
+              color: "white",
+            }}
+          >
+            القراء
+          </Text>
+        </View>
+
         <ScrollView style={{ width: win.width }}>
-          {Al9ora2Array.map((mo9ri2, key) => (
+          {filtered9ora2.map((mo9ri2, key) => (
             <TouchableHighlight
               key={key}
               style={styles.suratContainer}
@@ -54,10 +99,10 @@ export default function Al9ora2({ navigation, setMo9ri2Key, setNavigation }) {
               <Text
                 style={[
                   styles.surat,
-                  { color: onClick === key ? "#fd7e14" : "#636363" },
+                  { color: onClick === key ? "#fd7e14" : "#373737" },
                 ]}
               >
-                {`${Al9ora2Array[key].name}`}
+                {`${mo9ri2.name}`}
               </Text>
             </TouchableHighlight>
           ))}
@@ -99,6 +144,32 @@ const styles = StyleSheet.create({
   surat: {
     fontFamily: "Arabic-Font",
     fontSize: 15,
-    color: "#636363",
+  },
+  Header: {
+    paddingLeft: win.width * 0.02,
+    paddingRight: win.width * 0.04,
+    paddingTop: win.height * 0.01,
+    marginBottom: win.height * 0.007,
+    width: win.width,
+    height: win.height * 0.095,
+    backgroundColor: "#22aaf5",
+    borderBottomWidth: 2,
+    borderColor: "#fd7e14",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 2,
+    // },
+    // shadowOpacity: 0.25,
+    // shadowRadius: 3.84,
+    // elevation: 2,
+  },
+  dropDown: {
+    flexDirection: "row",
+    width: win.width * 0.45,
+    height: win.height * 0.055,
+    borderRadius: 100,
   },
 });

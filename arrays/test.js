@@ -367,78 +367,97 @@ const Al9ora2Array = [
   {
     name: "فهد العتيبي",
     path: "https://surahmp3.com/m/Fahd-Alotaybi/",
+    riwayat: ["hafs"],
   },
   {
     name: "فهد الكندري",
     path: "https://surahmp3.com/m/Fahd-Alkndri/",
+    riwayat: ["hafs"],
   },
   {
     name: "فواز الكعبي",
     path: "https://surahmp3.com/m/Fawaz-Alka3bi/",
+    riwayat: ["hafs"],
   },
   {
     name: "لافي العوني",
     path: "https://surahmp3.com/m/Lafi-Alawni/",
+    riwayat: ["hafs"],
   },
   {
     name: "ناصر القطامي",
     path: "https://surahmp3.com/m/Nassir-Al9tami/",
+    riwayat: ["hafs"],
   },
   {
     name: "نبيل الرفاعي",
     path: "https://surahmp3.com/m/Nabil-Arifa3i/",
+    riwayat: ["hafs"],
   },
   {
     name: "نعمة الحسان",
     path: "https://surahmp3.com/m/Ni3mat-Alhassan/",
+    riwayat: ["hafs"],
   },
   {
     name: "هاني الرفاعي",
     path: "https://surahmp3.com/m/Hani-Arifa3i/",
+    riwayat: ["hafs"],
   },
   {
     name: "وليد الدليمي",
     path: "https://surahmp3.com/m/Walid-Adlimi/",
+    riwayat: ["hafs"],
   },
   {
     name: "وليد النائحي",
     path: "https://surahmp3.com/m/Walid-Ana2i7i/",
+    riwayat: ["9alon"],
   },
   {
     name: "ياسر الدوسري",
     path: "https://surahmp3.com/m/Yassir-Adawsari/",
+    riwayat: ["hafs"],
   },
   {
     name: "ياسر القرشي",
     path: "https://surahmp3.com/m/Yassine-Al9orachi/",
+    riwayat: ["hafs"],
   },
   {
     name: "ياسر الفيلكاوي",
-    path: "https://surahmp3.com/m/Yassine-Alfilikawi/",
+    path: "https://surahmp3.com/m/Yassir-Alfilikawi/",
+    riwayat: ["hafs"],
   },
   {
     name: "ياسر المزروعي",
-    path: "https://surahmp3.com/m/Yassire-Almzro3i/",
+    path: "https://surahmp3.com/m/Yassir-Almzro3i/",
+    riwayat: ["hafs"],
   },
   {
     name: "يحيى حوا",
     path: "https://surahmp3.com/m/Yahya-Hawa/",
+    riwayat: ["hafs"],
   },
   {
     name: "يوسف الشويعي",
-    path: "https://surahmp3.com/m/Youssof-Achwi3i/",
+    path: "https://surahmp3.com/m/Youssef-Achwi3i/",
+    riwayat: ["hafs"],
   },
   {
     name: "ماجد العنزي",
     path: "https://surahmp3.com/m/Majid-Al3nzi/",
+    riwayat: ["hafs"],
   },
   {
     name: "مالك شيبة الحمد",
     path: "https://surahmp3.com/m/Malik-Chayba-Alhmd/",
+    riwayat: ["hafs"],
   },
   {
     name: "ماهر المعيقلي",
     path: "https://surahmp3.com/m/Maher-Alm3i9li/",
+    riwayat: ["hafs", "mo3alam"],
   },
   {
     name: "محمد الأيراوي",

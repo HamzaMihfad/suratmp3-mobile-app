@@ -45,6 +45,8 @@ export default function SuwarHome({
         return "السوسي عن أبي عمرو";
       case "khalaf":
         return "رواية خلف عن حمزة";
+      case "rwisroh":
+        return "رويس و روح";
       default:
         return "";
     }

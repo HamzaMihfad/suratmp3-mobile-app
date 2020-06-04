@@ -57,7 +57,7 @@ export default function SuwarHome({
         return "الدوري عن أبي عمرو";
       case "cho3baAssim":
         return "شعبة عن عاصم";
-      case "IbnKhaldonIbnAmir":
+      case "ibnKhaldonIbnAmir":
         return "ابن خلدون عن ابن عامر";
       default:
         return "";

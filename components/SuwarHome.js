@@ -52,6 +52,13 @@ export default function SuwarHome({
         return "الدوري عن الكسائي";
       case "bzri9onbol":
         return "البزي وقنبل عن ابن كثير";
+        
+        case "dawriAbiAmro":
+        return "الدوري عن أبي عمرو";
+      case "cho3baAssim":
+        return "شعبة عن عاصم";
+      case "IbnKhaldonIbnAmir":
+        return "ابن خلدون عن ابن عامر";
       default:
         return "";
     }

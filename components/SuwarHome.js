@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { useFonts } from "@use-expo/font";
+import { arr } from "../arrays/Arr";
 import { suwar } from "../arrays/Suwar";
 
 const win = Dimensions.get("window");
@@ -39,7 +40,7 @@ export default function SuwarHome({
         return "رواية حفص عن عاصم";
       case "warsh":
         return "رواية ورش عن نافع";
-      case "9alon":
+      case "kalon":
         return "رواية قالون عن نافع";
       case "sousi":
         return "السوسي عن أبي عمرو";
@@ -47,6 +48,10 @@ export default function SuwarHome({
         return "رواية خلف عن حمزة";
       case "rwisroh":
         return "رويس و روح";
+      case "dawrikisa2i":
+        return "الدوري عن الكسائي";
+      case "bzri9onbol":
+        return "البزي وقنبل عن ابن كثير";
       default:
         return "";
     }

@@ -226,7 +226,7 @@ const Al9ora2Array = [
   },
   {
     name: "عبد البارئ الثبيتي",
-    path: "https://surahmp3.com/m/Abd-Albari-Tbiti/",
+    path: "https://surahmp3.com/m/Abdlbari-Tbiti/",
     riwayat: ["hafs"],
   },
   {
@@ -326,7 +326,7 @@ const Al9ora2Array = [
   },
   {
     name: "عبد الولي الأركاني",
-    path: "https://surahmp3.com/m/Abd-Alwali-Alarkari/",
+    path: "https://surahmp3.com/m/Abdlwali-Alarkari/",
     riwayat: ["hafs"],
   },
   {
@@ -363,6 +363,171 @@ const Al9ora2Array = [
     name: "فارس عباد",
     path: "https://surahmp3.com/m/Faris-Abad/",
     riwayat: ["hafs"],
+  },
+  {
+    name: "فهد العتيبي",
+    path: "https://surahmp3.com/m/Fahd-Alotaybi/",
+    riwayat: ["hafs"],
+  },
+  {
+    name: "فهد الكندري",
+    path: "https://surahmp3.com/m/Fahd-Alkndri/",
+    riwayat: ["hafs"],
+  },
+  {
+    name: "فواز الكعبي",
+    path: "https://surahmp3.com/m/Fawaz-Alka3bi/",
+    riwayat: ["hafs"],
+  },
+  {
+    name: "لافي العوني",
+    path: "https://surahmp3.com/m/Lafi-Alawni/",
+    riwayat: ["hafs"],
+  },
+  {
+    name: "ناصر القطامي",
+    path: "https://surahmp3.com/m/Nassir-Al9tami/",
+    riwayat: ["hafs"],
+  },
+  {
+    name: "نبيل الرفاعي",
+    path: "https://surahmp3.com/m/Nabil-Arifa3i/",
+    riwayat: ["hafs"],
+  },
+  {
+    name: "نعمة الحسان",
+    path: "https://surahmp3.com/m/Ni3mat-Alhassan/",
+    riwayat: ["hafs"],
+  },
+  {
+    name: "هاني الرفاعي",
+    path: "https://surahmp3.com/m/Hani-Arifa3i/",
+    riwayat: ["hafs"],
+  },
+  {
+    name: "وليد الدليمي",
+    path: "https://surahmp3.com/m/Walid-Adlimi/",
+    riwayat: ["hafs"],
+  },
+  {
+    name: "وليد النائحي",
+    path: "https://surahmp3.com/m/Walid-Ana2i7i/",
+    riwayat: ["9alon"],
+  },
+  {
+    name: "ياسر الدوسري",
+    path: "https://surahmp3.com/m/Yassir-Adawsari/",
+    riwayat: ["hafs"],
+  },
+  {
+    name: "ياسر القرشي",
+    path: "https://surahmp3.com/m/Yassine-Al9orachi/",
+    riwayat: ["hafs"],
+  },
+  {
+    name: "ياسر الفيلكاوي",
+    path: "https://surahmp3.com/m/Yassir-Alfilikawi/",
+    riwayat: ["hafs"],
+  },
+  {
+    name: "ياسر المزروعي",
+    path: "https://surahmp3.com/m/Yassir-Almzro3i/",
+    riwayat: ["hafs"],
+  },
+  {
+    name: "يحيى حوا",
+    path: "https://surahmp3.com/m/Yahya-Hawa/",
+    riwayat: ["hafs"],
+  },
+  {
+    name: "يوسف الشويعي",
+    path: "https://surahmp3.com/m/Youssef-Achwi3i/",
+    riwayat: ["hafs"],
+  },
+  {
+    name: "ماجد العنزي",
+    path: "https://surahmp3.com/m/Majid-Al3nzi/",
+    riwayat: ["hafs"],
+  },
+  {
+    name: "مالك شيبة الحمد",
+    path: "https://surahmp3.com/m/Malik-Chayba-Alhmd/",
+    riwayat: ["hafs"],
+  },
+  {
+    name: "ماهر المعيقلي",
+    path: "https://surahmp3.com/m/Maher-Alm3i9li/",
+    riwayat: ["hafs", "mo3alam"],
+  },
+  {
+    name: "محمد الأيراوي",
+    path: "https://surahmp3.com/m/Mohamed-Alirawi/",
+    riwayat: ["warsh"],
+  },
+  {
+    name: "محمد البراك",
+    path: "https://surahmp3.com/m/Mohamed-Abarak/",
+    riwayat: ["hafs"],
+  },
+  {
+    name: "محمد الطبلاوي",
+    path: "https://surahmp3.com/m/Mohamed-Atablawi/",
+    riwayat: ["hafs"],
+  },
+  {
+    name: "محمد اللحيدان",
+    path: "https://surahmp3.com/m/Mohamed-Alahidan/",
+    riwayat: ["hafs"],
+  },
+  {
+    name: "محمد المحيسني",
+    path: "https://surahmp3.com/m/Mohamed-Almhisni/",
+    riwayat: ["hafs"],
+  },
+  {
+    name: "محمد أيوب",
+    path: "https://surahmp3.com/m/Mohamed-Ayoub/",
+    riwayat: ["hafs"],
+  },
+  {
+    name: "محمد صالح عالم شاه",
+    path: "https://surahmp3.com/m/Mohamed-Salih-3alim-Chah/",
+    riwayat: ["hafs"],
+  },
+  {
+    name: "محمد جبريل",
+    path: "https://surahmp3.com/m/Mohamed-Jibril/",
+    riwayat: ["hafs"],
+  },
+  {
+    name: "محمد صديق المنشاوي",
+    path: "https://surahmp3.com/m/Mohamed-Sidi9-Almnchawi/",
+    riwayat: ["hafs", "mo3alam", "mojawad"],
+  },
+  {
+    name: "محمد عبد الكريم",
+    path: "https://surahmp3.com/m/Mohamed-Abdlkrim/",
+    riwayat: ["hafs", "warsh"],
+  },
+  {
+    name: "محمد عبد الحكيم بن سعيد",
+    path: "https://surahmp3.com/m/Mohamed-Abdlhakim-Bnsa3id/",
+    riwayat: ["bzri9onbol", "dawrikisa2i"],
+  },
+  {
+    name: "محمود خليل الحصري",
+    path: "https://surahmp3.com/m/Mahmoud-Khalil-Alhossari/",
+    riwayat: ["warsh", "hafs", "mojawad"],
+  },
+  {
+    name: "محمود علي البنا",
+    path: "https://surahmp3.com/m/Mohmod-Ali-Albana/",
+    riwayat: ["hafs", "mojawad"],
+  },
+  {
+    name: "مشاري العفاسي",
+    path: "https://surahmp3.com/m/Mchari-Al3fassi/",
+    riwayat: ["hafs", "dawrikisa2i"],
   },
 ];
 

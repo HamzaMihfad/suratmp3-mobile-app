@@ -11,7 +11,6 @@ import {
 } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { useFonts } from "@use-expo/font";
-import { arr } from "../arrays/Arr";
 import { suwar } from "../arrays/Suwar";
 
 const win = Dimensions.get("window");
@@ -30,6 +29,39 @@ export default function SuwarHome({
     "Arabic-Font": require("../assets/fonts/NotoKufiArabic-Bold.ttf"),
   });
 
+  const check = (key) => {
+    switch (Object.keys(mo9ri2.list)[0]) {
+      case "hafs":
+        return mo9ri2.list.hafs.includes(key);
+      case "warsh":
+        return mo9ri2.list.warsh.includes(key);
+      case "kalon":
+        return mo9ri2.list.kalon.includes(key);
+      case "sousi":
+        return mo9ri2.list.sousi.includes(key);
+      case "dawriAbiAmro":
+        return mo9ri2.list.dawriAbiAmro.includes(key);
+      case "khalaf":
+        return mo9ri2.list.khalaf.includes(key);
+      case "rwisroh":
+        return mo9ri2.list.rwisroh.includes(key);
+      case "dawrikisa2i":
+        return mo9ri2.list.dawrikisa2i.includes(key);
+      case "bzri9onbol":
+        return mo9ri2.list.bzri9onbol.includes(key);
+      case "ibnDakwanIbnAmir":
+        return mo9ri2.list.ibnDakwanIbnAmir.includes(key);
+      case "cho3baAssim":
+        return mo9ri2.list.cho3baAssim.includes(key);
+      case "mo3alam":
+        return mo9ri2.list.mo3alam.includes(key);
+      case "mojawad":
+        return mo9ri2.list.mojawad.includes(key);
+      default:
+        return "";
+    }
+  };
+  
   const filteredSuwar = suwar.filter((surah) => {
     return surah.name.includes(searchField);
   });
@@ -113,7 +145,7 @@ export default function SuwarHome({
                     color: "#333",
                   }}
                 >
-                  {getRiwaya(mo9ri2.riwayat[0])}
+                  {getRiwaya(Object.keys(mo9ri2.list)[0])}
                 </Text>
               </View>
 
@@ -146,6 +178,8 @@ export default function SuwarHome({
           </View>
           <ScrollView style={{ width: win.width }}>
             {filteredSuwar.map((sura, key) => {
+              if (!check(key+1))
+                return null;
               return (
                 <TouchableHighlight
                   key={key}

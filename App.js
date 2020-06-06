@@ -6,6 +6,7 @@ import Home from "./components/Home";
 import Player from "./components/Player";
 import MiniPlayer from "./components/MiniPlayer";
 import { Al9ora2Array } from "./arrays/Al9ora2Array";
+import { Arr } from "./arrays/Arr";
 import { View, Dimensions } from "react-native";
 
 const Stack = createStackNavigator();
@@ -48,7 +49,7 @@ export default function App() {
             <SuwarHome
               {...props}
               setSuratKey={setSuratKey}
-              mo9ri2={Al9ora2Array[mo9ri2Key]}
+              mo9ri2={Arr[mo9ri2Key]}
               setDisplayMiniPlayer={setDisplayMiniPlayer}
             />
           )}
@@ -62,7 +63,7 @@ export default function App() {
               setAudioStatus={setAudioStatus}
               setInPlayer={setInPlayer}
               suraKey={suraKey}
-              mo9ri2={Al9ora2Array[mo9ri2Key]}
+              mo9ri2={Arr[mo9ri2Key]}
               setSuratKey={setSuratKey}
               setSound={setSound}
               currentRiwaya={currentRiwaya}

@@ -64,19 +64,19 @@ export default function Player({
   // to change the audio url:
   const getLink = (condition, key) => {
     if (key === 0) {
-      setLink(`${mo9ri2.path}${mo9ri2.riwayat[currentRiwaya]}/114.mp3`);
+      setLink(`https://surahmp3.com/m/${mo9ri2.path}/${Object.keys(mo9ri2.list)[0]}/114.mp3`);
       setSuratKey(114);
     } else if (key === 115) {
-      setLink(`${mo9ri2.path}${mo9ri2.riwayat[currentRiwaya]}/001.mp3`);
+      setLink(`https://surahmp3.com/m/${mo9ri2.path}/${Object.keys(mo9ri2.list)[0]}/001.mp3`);
       setSuratKey(1);
     } else if (key < 10) {
-      setLink(`${mo9ri2.path}${mo9ri2.riwayat[currentRiwaya]}/00${key}.mp3`);
+      setLink(`https://surahmp3.com/m/${mo9ri2.path}/${Object.keys(mo9ri2.list)[0]}/00${key}.mp3`);
       console.log(link);
     } else if (key < 100)
-      setLink(`${mo9ri2.path}${mo9ri2.riwayat[currentRiwaya]}/0${key}.mp3`);
-    else setLink(`${mo9ri2.path}${mo9ri2.riwayat[currentRiwaya]}/${key}.mp3`);
+      setLink(`https://surahmp3.com/m/${mo9ri2.path}/${Object.keys(mo9ri2.list)[0]}/0${key}.mp3`);
+    else setLink(`https://surahmp3.com/m/${mo9ri2.path}/${Object.keys(mo9ri2.list)[0]}/${key}.mp3`);
     if (key !== 0 && key != 115) setSuratKey(key);
-    if (condition) setShouldUpdate(2);
+    if (condition) setShouldUpdate(2);    
   };
 
   useEffect(() => {
@@ -87,6 +87,10 @@ export default function Player({
       setInPlayer(false);
     };
   }, []);
+
+  // useEffect(() => {
+  //  console.log(link);
+  // });
 
   return (
     <View style={styles.container}>

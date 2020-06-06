@@ -10,7 +10,6 @@ import {
   ActivityIndicator,
 } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
-import { Al9ora2Array } from "../arrays/Al9ora2Array";
 import { Arr } from "../arrays/Arr";
 import { useFonts } from "@use-expo/font";
 
@@ -29,7 +28,7 @@ export default function Al9ora2({
     "Arabic-Font": require("../assets/fonts/NotoKufiArabic-Bold.ttf"),
   });
 
-  const filtered9ora2 = Al9ora2Array.filter((mo9ri2) => {
+  const filtered9ora2 = Arr.filter((mo9ri2) => {
     return mo9ri2.name.includes(searchField);
   });
 

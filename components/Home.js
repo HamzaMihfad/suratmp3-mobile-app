@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { Al9ora2Array } from "../arrays/Al9ora2Array";
+import { Arr } from "../arrays/Arr";
 import { useFonts } from "@use-expo/font";
 
 const win = Dimensions.get("window");

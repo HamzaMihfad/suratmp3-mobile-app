@@ -44,6 +44,8 @@ export default function SuwarHome({
         return "رواية قالون عن نافع";
       case "sousi":
         return "السوسي عن أبي عمرو";
+      case "dawriAbiAmro":
+        return "الدوري عن أبي عمرو";
       case "khalaf":
         return "رواية خلف عن حمزة";
       case "rwisroh":
@@ -52,6 +54,14 @@ export default function SuwarHome({
         return "الدوري عن الكسائي";
       case "bzri9onbol":
         return "البزي وقنبل عن ابن كثير";
+      case "ibnDakwanIbnAmir":
+        return "ابن ذكوان عن ابن عامر";
+      case "cho3baAssim":
+        return "شعبة عن عاصم";
+      case "mo3alam":
+        return "المصحف المعلم";
+      case "mojawad":
+        return "المصحف المجود";
       default:
         return "";
     }
